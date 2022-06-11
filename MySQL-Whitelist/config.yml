@@ -1,0 +1,18 @@
+##
+#Mysql Settings
+host: localhost
+user: root
+password: example
+database: minecraft
+port: 3306
+table: mysql_whitelist
+useSSL: false
+
+useUUIDs: true
+
+#messages
+noperm: "&cI'm sorry but you don`t have the right permissions to do this"
+kick: ":( You are not in whitelist"
+
+#status of the whitelist
+enabled: true

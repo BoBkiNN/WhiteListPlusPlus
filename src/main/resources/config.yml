@@ -1,0 +1,33 @@
+#Mysql Settings
+mysql:
+  host: localhost
+  user: root
+  password: example
+  database: minecraft
+  port: 3306
+  table: mysql_whitelist
+  urlArgs: "allowPublicKeyRetrieval=true&useSSL=false"
+
+#check in whitelist using UUID? Usable when user changed name, so player with same UUID will join.
+useUUIDs: false
+
+#Messages
+messages:
+  noperm: "&cI'm sorry but you don`t have the right permissions to do this"
+  reloadMsg: "&aConfig reloaded and database reconnected!"
+  kick: "&b:( You are not in whitelist"
+  addedMsg: "&e%player% &ais now whitelisted!"
+  addedNotify: "&aYou have been whitelisted!"
+  delMsg: "&e%player% &awas removed from whitelist!"
+  usage: "&cUsage: &e%command%"
+  enabledMsg: "&cWhitelist enabled!"
+  disabledMsg: "&aWhitelist disabled!"
+  alreadyEnabled: "&eWhitelist already enabled"
+  alreadyDisabled: "&eWhitelist already disabled"
+  listMsgStart: "&6Whitelist %online%/%lenght%: &a"
+  listMsgOnline: "&a%player%"
+  listMsgOffline: "&7%player%"
+  listMsgSep: "&6, "
+
+#status of the whitelist
+enabled: true

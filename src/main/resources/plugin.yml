@@ -1,0 +1,43 @@
+name: WhiteListPlusPlus
+version: '${project.version}'
+main: xyz.bobkinn_.whitelistplusplus.WhiteListPlusPlus
+#api-version: 1.18
+load: STARTUP
+authors: [ BoBkiNN_ ]
+description: Whitelist plugin with MySQL support
+
+commands:
+  whitelistpp:
+    aliases: ["wpp"]
+permissions:
+  whitelistpp.*:
+    description: Gives access to all WhiteListPlusPlus commands
+    children:
+      whitelistpp.add: true
+      whitelistpp.del: true
+      whitelistpp.on: true
+      whitelistpp.off: true
+      whitelistpp.list: true
+      whitelistpp.reload: true
+      whitelistpp.use: true
+  whitelistpp.add:
+    description: Allows you to add someone to the whitelist
+    default: op
+  whitelistpp.del:
+    description: Allows you to remove someone from the whitelist
+    default: op
+  whitelistpp.on:
+    description: Allows you to enable the whitelist
+    default: op
+  whitelistpp.off:
+    description: Allows you to disable the whitelist
+    default: op
+  whitelistpp.list:
+    description: Allows you to see whitelist
+    default: op
+  whitelistpp.reload:
+    description: Allows you to reload config
+    default: op
+  whitelistpp.use:
+    description: "Allows you to use all /wpp"
+    default: op
