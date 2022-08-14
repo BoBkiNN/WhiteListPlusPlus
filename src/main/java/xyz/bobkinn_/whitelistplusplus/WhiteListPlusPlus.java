@@ -1,10 +1,5 @@
 package xyz.bobkinn_.whitelistplusplus;
 
-import java.io.*;
-import java.sql.*;
-import java.util.*;
-import java.util.logging.Logger;
-
 import org.apache.commons.io.IOUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -20,6 +15,11 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nullable;
+import java.io.*;
+import java.nio.file.Files;
+import java.sql.*;
+import java.util.*;
+import java.util.logging.Logger;
 
 public class WhiteListPlusPlus extends JavaPlugin implements Listener{
     public final Logger logger = Logger.getLogger("WhiteListPlusPlus");
@@ -141,15 +141,21 @@ public class WhiteListPlusPlus extends JavaPlugin implements Listener{
     }
 
     public void reloadMyConfig() {
-        File dataFolder = new File(getDataFolder().getAbsolutePath()+ File.separator);
+        File dataFolder = new File(getDataFolder().getAbsolutePath());
         if (!dataFolder.exists()){
-            getLogger().info("folder not exists");
-            getDataFolder().mkdir();
+//            getLogger().info("folder not exists");
+//            getLogger().info("successful - "+dataFolder.getAbsolutePath()+" ? "+ dataFolder.mkdirs());
+            try {
+                Files.createDirectory(dataFolder.toPath());
+            } catch (IOException ignored) {
+            }
         }
-        File configFile = new File(getDataFolder(),"config.yml");
+        File configFile = new File(dataFolder,"config.yml");
+//        getLogger().info(configFile.getAbsolutePath());
         if (!configFile.exists()){
             try {
-                getLogger().info("file not exists");
+//                getLogger().info("file not exists, successful creating? ");
+//                getLogger().info("created? ");
                 configFile.createNewFile();
 
                 InputStream jarConfigStream = getResource("config.yml");
